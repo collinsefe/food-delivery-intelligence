@@ -18,7 +18,7 @@ def read_s3_file(bucket_name, file_name):
 
     s3 = boto3.client('s3',
                       aws_access_key_id = os.getenv('ACCESS_KEY_ID'),  ## Fetch variables from the .env file.
-                      aws_secret_access_key = os.getenv("SECRET_ACCESS_KEY"))## Fetch variables from the .env file.
+                      aws_secret_access_key = os.getenv("SECRET_ACCESS_KEY")) ## Fetch variables from the .env file.
 
     obj = s3.get_object(Bucket=bucket_name, Key=file_name)
     df = pd.read_csv(obj['Body'])
